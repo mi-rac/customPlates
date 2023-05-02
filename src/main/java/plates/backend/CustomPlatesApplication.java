@@ -19,17 +19,22 @@ public class CustomPlatesApplication
     @Bean
     public CommandLineRunner demo(PlatesRepository repository) {
         return args -> {
+            String empty = "";
+            String line = "-------------------------------";
+
             repository.save(new Plate("WM09OTU", false, 30.00));
             repository.save(new Plate("AB06NFW", true, 40.50));
             repository.save(new Plate("BN45BWE", false, 120.11));
-            repository.save(new Plate("WM09OTU", false, 30.00));
+            repository.save(new Plate("LN09OTU", false, 100.00));
             repository.save(new Plate("AB06DEG", true, 40.50));
             repository.save(new Plate("BN32BWE", false, 11.11));
 
-            // fetch all plates
-            log.info("Plates found with findAll():");
-            log.info("-------------------------------");
-            repository.findAll().forEach(plate -> log.info("{}", plate));
+            // fetch plates containing "OTU"
+            log.info(empty);
+            log.info("Plates found with findPlateByRegistrationNumberContaining(\"OTU\"):");
+            log.info(line);
+            repository.findPlateByRegistrationNumberContaining("OTU").forEach(plate -> log.info("{}", plate));
+            log.info(empty);
         };
     }
 
