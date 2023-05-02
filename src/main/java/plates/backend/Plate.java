@@ -17,6 +17,23 @@ public class Plate implements java.io.Serializable
     private boolean sold;
     private double price;
 
+    Plate(String registrationNumber, boolean sold, double price)
+    {
+        this.registrationNumber = registrationNumber;
+        this.sold = sold;
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Plate{" +
+                "plateid=" + plateid +
+                ", registrationNumber='" + registrationNumber + '\'' +
+                ", sold=" + sold +
+                ", price=" + price +
+                '}';
+    }
+
     public int getPlateid() {
         return plateid;
     }
