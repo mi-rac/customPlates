@@ -30,7 +30,6 @@ public class CustomPlatesApplication
             log.info("Plates found with findAll():");
             log.info("-------------------------------");
             repository.findAll().forEach(plate -> log.info("{}", plate));
-            log.info("");
         };
     }
 
