@@ -17,11 +17,15 @@ public class Plate implements java.io.Serializable
     private boolean sold;
     private double price;
 
-    Plate(String registrationNumber, boolean sold, double price)
+    public Plate(String registrationNumber, boolean sold, double price)
     {
         this.registrationNumber = registrationNumber;
         this.sold = sold;
         this.price = price;
+    }
+
+    public Plate() {
+
     }
 
     @Override
