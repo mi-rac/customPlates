@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Plates implements java.io.Serializable
+public class Plate implements java.io.Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
