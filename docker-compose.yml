@@ -1,0 +1,44 @@
+version: '2.1'
+
+services:
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: customPlates
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    depends_on:
+      wait-for-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  wait-for-db:
+    image: alpine
+    depends_on:
+      db:
+        condition: service_healthy
+    command: >
+      sh -c "until pg_isready -h db -U postgres; do echo 'Waiting for database to start up...'; sleep 1; done;"
+
+  app:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/customPlates
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: admin
+
+volumes:
+  db-data:
