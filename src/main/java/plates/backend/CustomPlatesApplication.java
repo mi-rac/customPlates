@@ -40,3 +40,4 @@ public class CustomPlatesApplication
         };
     }
 }
+// openapi-generator generate -i client/openapi.json -g typescript-jquery -o client/api-generated/
