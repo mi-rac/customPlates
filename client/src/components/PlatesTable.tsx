@@ -1,5 +1,6 @@
 // PlatesTable.tsx
 import React from 'react';
+import './PlatesTable.css';
 import PlateRow from './PlateRow';
 import { Plate } from '../api-generated';
 
@@ -9,7 +10,7 @@ interface PlatesTableProps {
 
 const PlatesTable: React.FC<PlatesTableProps> = ({ plates }) => {
   return (
-    <table>
+    <table className={"platesTable"}>
       <thead>
         <tr>
           <th>Registration Number</th>

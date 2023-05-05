@@ -1,31 +1,31 @@
+/* Center and style the SearchInput component */
 .searchForm {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .searchInput {
-    padding: 0.5rem;
-    font-size: 1rem;
-    width: 100%;
-    max-width: 600px;
-    border: 1px solid #ccc;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid #ccc;
     border-radius: 4px;
-    outline: none;
+    width: 50%;
 }
 
 .searchButton {
-    background-color: #007bff;
-    border: none;
-    color: white;
+    font-size: 1.5rem;
     padding: 0.5rem 1rem;
-    font-size: 1rem;
+    margin-left: 1rem;
+    background-color: #3f51b5;
+    color: #fff;
+    border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 1rem;
 }
 
 .searchButton:hover {
-    background-color: #0056b3;
+    background-color: #283593;
 }

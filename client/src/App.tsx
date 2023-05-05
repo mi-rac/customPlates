@@ -10,7 +10,7 @@ function App() {
     const apiPlates = new PlateEntityApi();
 
     const handleSearch = (searchTerm: string) => {
-        console.log("Searching for:");
+        console.log("Searching for: ", searchTerm);
         apiPlates.findPlateByRegistrationNumberContainingPlateUsingGET(searchTerm)
             .done((response: any) => {
                 const platesData = response.body._embedded.plates;
