@@ -1,0 +1,1 @@
+openapi-generator generate -i client/openapi.json -g typescript-jquery -o client/src/api-generated/
