@@ -7,7 +7,7 @@ import { Plate } from './api-generated';
 
 function App() {
     const [plates, setPlates] = useState<Plate[]>([]);
-    const apiPlates = new PlateEntityApi();
+    const apiPlates = new PlateEntityApi("server:8080");
 
     const handleSearch = (searchTerm: string) => {
         console.log("Searching for: ", searchTerm);
