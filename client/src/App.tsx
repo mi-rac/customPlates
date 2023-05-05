@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import SearchInput from "./components/SearchInput";
+import {PlateEntityApi} from "./api-generated";
 
 function App() {
+    const apiPlates = new PlateEntityApi();
+    const handleSearch = (searchTerm: string) => {
+        console.log("Searching for:")
+        apiPlates.findPlateByRegistrationNumberContainingPlateUsingGET(searchTerm)
+            .done(response => console.log("Search results: ", response))
+            .fail(error => console.log("Error searching for results: ", error));
+    };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <header className="App-header">
+            <h1>Car Registration Number Search</h1>
+        </header>
+        <main>
+            <SearchInput onSearch={handleSearch} />
+        </main>
     </div>
   );
 }
