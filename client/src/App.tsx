@@ -8,8 +8,8 @@ function App() {
     const handleSearch = (searchTerm: string) => {
         console.log("Searching for:")
         apiPlates.findPlateByRegistrationNumberContainingPlateUsingGET(searchTerm)
-            .done(response => console.log("Search results: ", response))
-            .fail(error => console.log("Error searching for results: ", error));
+            .done((response: any) => console.log("Search results: ", response))
+            .fail((error: { response: JQueryXHR; errorThrown: string }) => console.log("Error searching for results: ", error));
     };
   return (
     <div className="App">
